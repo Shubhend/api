@@ -10,13 +10,19 @@ function validateuser($email,$site){
 
 
     $easydb = new easyfeature();
-    $sqli="SELECT * FROM autoindexusers Where email='$email' && site='$site'";
+
+
+    $sqlivd="SELECT * FROM autoindex Where email='$email' ";
+    $userid=$easydb->fetchrow($sqlivd,'id');
+
+
+    $sqli="SELECT * FROM autoindexusers Where email='$userid' && site='$site'";
     $r=$easydb->checkduplicate($sqli);
     if($r>0) {
         $sqlius="SELECT * FROM autoindex Where email='$email' && site='$site'";
         $paid = $easydb->fetchrow($sqlius, 'paid');
 
-        $count = $easydb->fetchrow($sqlius, 'count');
+        $count = $easydb->fetchrow($sqli, 'count');
 $free=0;
         if($paid==0 && $count >50){
 
@@ -153,6 +159,8 @@ if(isset($_POST['type']) ){
             $msg='Done , Check Bing webmaster tool';
 
         }
+
+
 
 
 

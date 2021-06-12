@@ -9,7 +9,13 @@ try{
 
         $easydb = new easyfeature();
         $email=$_POST['email'];
-        $sqli="SELECT * FROM autoindexusers Where email='$email'";
+
+
+        $sqlivd="SELECT * FROM autoindex Where email='$email' ";
+        $userid=$easydb->fetchrow($sqlivd,'id');
+
+
+        $sqli="SELECT * FROM autoindexusers Where email='$userid'";
         $r=$easydb->checkduplicate($sqli);
         if($r>0) {
 
@@ -18,13 +24,15 @@ try{
         }
 
         //user records
-        $sqli="SELECT * FROM requesturl WHERE user='$id' ";
+
+
+        $sqli="SELECT * FROM requesturl WHERE `user`='$userid' ";
 
         $datas=$easydb->fetch($sqli);
         $data=[];
 
         foreach($datas as $row) {
-            // var_dump($row);
+
             array_push($data,$row);
 
         }

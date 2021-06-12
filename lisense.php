@@ -14,7 +14,11 @@ if(isset($_POST['Lisense'])){
     $date=date("Y-m-d h:i:sa");
 
 
-    $sqli="SELECT * FROM autoindexusers Where email='$email' && site='$site'";
+
+    $sqlivd="SELECT * FROM autoindex Where email='$email' ";
+    $userid=$easydb->fetchrow($sqlivd,'id');
+
+    $sqli="SELECT * FROM autoindexusers Where email='$userid'  ";
     $r=$easydb->checkduplicate($sqli);
     if($r>0){
 
@@ -38,7 +42,7 @@ if(isset($_POST['Lisense'])){
                 if(strtotime($expirydate) < strtotime($date)){
 
                     $msg['valid']=0;
-                    $msg['msg']="Key Expired";
+                    $msg['msg']="AutoFast Key Expired";
 
                 }else{
 

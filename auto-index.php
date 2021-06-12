@@ -13,50 +13,68 @@ if(isset($_POST['add'])){
 
    
     try{
-        
+
+
+
+
+        $sqli="SELECT * FROM autoindex Where email='$email'";
+        $r=$easydb->checkduplicate($sqli);
+        if($r>0){
+            $userid=$easydb->fetchrow($sqli,'id');
+            $count=$easydb->fetchrow($sqli,'count');
+            $count=$count+1;
+            $sqline="UPDATE  autoindex   SET  version='$ver', count='$count',site='$site',updated_date='$date' WHERE email='$email' ";
+            $easydb->insert($sqline);
+
+
+        }else{
+
+            $sqline="INSERT INTO  autoindex VALUES(NULL,'$email','1','$date','$site','1','$ver',0,'$date') ";
+            $easydb->insert($sqline);
+
+            $userid=$easydb->fetchrow($sqli,'id');
+
+
+        }
+
+
+
+
         //user records 
-          $sqli="SELECT * FROM autoindexusers Where email='$email'";
+          $sqli="SELECT * FROM autoindexusers Where email='$userid'";
 		$r=$easydb->checkduplicate($sqli);
         	if($r>0){
         	      $count=$easydb->fetchrow($sqli,'count');
 		    $count=$count+1;
-		      $sqline="UPDATE  autoindexusers   SET  count='$count',site='$site' WHERE email='$email' ";
+		      $sqline="UPDATE  autoindexusers   SET  count='$count',site='$site' WHERE email='$userid' ";
 		$easydb->insert($sqline);
         	    
 		    
         	}else{
-        	    
-        	       $sqline="INSERT INTO  autoindexusers VALUES(NULL,'$email','$date','1','$site') ";
+
+
+        	       $sqline="INSERT INTO  autoindexusers VALUES(NULL,'$userid','$date','1','$site') ";
         	       	$easydb->insert($sqline);
         	}
-        
-        
-        
-        
-        
-        
-        $sqli="SELECT * FROM autoindex Where email='$email'";
-		$r=$easydb->checkduplicate($sqli);
-		if($r>0){
-		    $count=$easydb->fetchrow($sqli,'count');
-		    $count=$count+1;
-		      $sqline="UPDATE  autoindex   SET  version='$ver', count='$count',site='$site',updated_date='$date' WHERE email='$email' ";
-		$easydb->insert($sqline);
-		    
-		    
-		}else{
-		    
-		       $sqline="INSERT INTO  autoindex VALUES(NULL,'$email','1','$date','$site','1','$ver',0,'$date') ";
-		$easydb->insert($sqline);
-		    
-		}
-       
+
+
+
+
+
+
+
     
     
     }catch(\Exception $e){
         var_dump($e->getMessage());
-  
-       exit;
+
+        $fp = fopen('log.log', 'a');//opens file in append mode
+        fwrite($fp, json_encode($e->getMessage()));
+        fclose($fp);
+
+
+
+        exit;
     }
    
     echo json_encode("done");
