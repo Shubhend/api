@@ -2,9 +2,9 @@
 include('config.php');
 
 
-$bingurl='http://testapi.com/bing.php';
+$bingurl='http://firstpageranker.com/bing.php';
 
-$googleurl='http://testapi.com/google.php';
+$googleurl='http://firstpageranker.com/google.php';
 
 function validateuser($email,$site){
 
@@ -116,6 +116,22 @@ function updatesite($url,$userid,$status,$code,$type){
 
     }
 
+    if (!file_exists('requestlogs/'.$userid)) {
+        mkdir('requestlogs/'.$userid, 0777, true);
+    }
+
+
+    $data=[];
+
+    $data['url']=$url;
+    $data['status']=$status;
+    $data['type']=$type;
+
+
+    $date=date("Y-m-d");
+    file_put_contents('requestlogs/'.$userid.'/'.$date.'-logs.log', json_encode($data) . "\n", FILE_APPEND);
+
+
 
 
 
@@ -203,7 +219,9 @@ if(isset($_POST['type']) ){
 
         $result=json_decode($apiResponse);
 
-     //   var_dump($result->status);
+
+
+     //  var_dump($result->status);
 
         if($result->status==200){
             $data=[];
