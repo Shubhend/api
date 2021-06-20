@@ -29,7 +29,7 @@ if(isset($_POST['add'])){
 
         }else{
 
-            $sqline="INSERT INTO  autoindex VALUES(NULL,'$email','1','$date','$site','1','$ver',0,'$date') ";
+            $sqline="INSERT INTO  autoindex VALUES(NULL,'$email','1','$date','$site','0','$ver',0,'$date') ";
             $easydb->insert($sqline);
 
             $userid=$easydb->fetchrow($sqli,'id');
@@ -66,7 +66,7 @@ if(isset($_POST['add'])){
     
     
     }catch(\Exception $e){
-        var_dump($e->getMessage());
+       // var_dump($e->getMessage());
 
         $fp = fopen('log.log', 'a');//opens file in append mode
         fwrite($fp, json_encode($e->getMessage()));
@@ -113,7 +113,7 @@ if(isset($_POST['check'])){
 		  
 		  if($paid==0){
 		      
-		      if($count>500){
+		      if($count>50){
 		        $freeservice=0;  
 		          
 		      }
