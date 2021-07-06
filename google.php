@@ -18,7 +18,7 @@ if(isset($_POST['google_file']) ) {
         $dirsite=str_replace('https://','',$site);
         $dirsite=str_replace('http://','',$dirsite);
 
-        if (!file_exists('temp/'.$dirsite.'/temp.json')) {
+        if (!file_exists('temp/'.$dirsite)) {
             mkdir('temp/'.$dirsite, 0777, true);
         }
 
