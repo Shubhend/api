@@ -1,3 +1,79 @@
+
+<?php
+
+require_once('vendor/autoload.php');
+
+
+$api =new Razorpay\Api\Api('rzp_test_vpmW3l6DDfElfQ','BbYaWYyGPc33YElRa2rpoify');
+
+
+//
+// We create an razorpay order using orders api
+// Docs: https://docs.razorpay.com/docs/orders
+//
+$orderData = [
+    'receipt'         => 3456,
+    'amount'          => 2000 * 100, // 2000 rupees in paise
+    'currency'        => 'INR',
+    'payment_capture' => 1 // auto capture
+];
+
+$razorpayOrder = $api->order->create($orderData);
+
+$razorpayOrderId = $razorpayOrder['id'];
+
+$_SESSION['razorpay_order_id'] = $razorpayOrderId;
+
+$displayAmount = $amount = $orderData['amount'];
+
+$displayCurrency='INR';
+
+if ($displayCurrency !== 'INR')
+{
+    $url = "https://api.fixer.io/latest?symbols=$displayCurrency&base=INR";
+    $exchange = json_decode(file_get_contents($url), true);
+
+    $displayAmount = $exchange['rates'][$displayCurrency] * $amount / 100;
+}
+
+$checkout = 'automatic';
+
+if (isset($_GET['checkout']) and in_array($_GET['checkout'], ['automatic', 'manual'], true))
+{
+    $checkout = $_GET['checkout'];
+}
+
+$data = [
+    "key"               => $keyId,
+    "amount"            => $amount,
+    "name"              => "DJ Tiesto",
+    "description"       => "Tron Legacy",
+    "image"             => "https://s29.postimg.org/r6dj1g85z/daft_punk.jpg",
+    "prefill"           => [
+        "name"              => "Daft Punk",
+        "email"             => "customer@merchant.com",
+        "contact"           => "9999999999",
+    ],
+    "notes"             => [
+        "address"           => "Hello World",
+        "merchant_order_id" => "12312321",
+    ],
+    "theme"             => [
+        "color"             => "#F37254"
+    ],
+    "order_id"          => $razorpayOrderId,
+];
+
+if ($displayCurrency !== 'INR')
+{
+    $data['display_currency']  = $displayCurrency;
+    $data['display_amount']    = $displayAmount;
+}
+
+$json = json_encode($data);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,15 +96,104 @@
     <link href="enroll/css/osahan.css" rel="stylesheet">
     <!-- Facebook Pixel Code -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AbFiu-cDLQv1gGZIv_HBJVGbd_w3AB-s3uCSgYtv5ITkydjuUNkCUeP-NNtkPvuQWELHZyiuP5qaGQFP"></script>
+    <!--
+      <script src="https://www.paypal.com/sdk/js?client-id=AbFiu-cDLQv1gGZIv_HBJVGbd_w3AB-s3uCSgYtv5ITkydjuUNkCUeP-NNtkPvuQWELHZyiuP5qaGQFP"></script>
+
+    -->
+
+    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+
 </head>
 
+<script>
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            // This function sets up the details of the transaction, including the amount and line item details.
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '6.00'
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            // This function captures the funds from the transaction.
+            return actions.order.capture().then(function(details) {
+                // This function shows a transaction success message to your buyer.
+                console.log(details);
+
+                $.post("paypalsave.php", {data: details}, function(result){
+
+                });
+
+                alert('Transaction completed by ' + details.payer.name.given_name+ ". Please, Check Your email for this plugin");
+            });
+        }
+    }).render('#paypal');
+</script>
+
+
+
 <body>
+
+
+<div id="paypal" ></div>
+
+<button id="rzp-button1">Pay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": "rzp_test_vpmW3l6DDfElfQ", // Enter the Key ID generated from the Dashboard
+        "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "Acme Corp",
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        "order_id": "<?php echo $razorpayOrderId; ?>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "handler": function (response){
+
+            console.log(response);
+            alert(response.razorpay_payment_id);
+            alert(response.razorpay_order_id);
+            alert(response.razorpay_signature)
+        },
+        "prefill": {
+            "name": "Gaurav Kumar",
+            "email": "gaurav.kumar@example.com",
+            "contact": "9999999999"
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+    });
+    document.getElementById('rzp-button1').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
 
 <div class="container">
     <div class="py-5 text-center">
 
-        <h2>Checkout form</h2>
+        <h2>Wp Autoindex License Upgrade  </h2>
         <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
     </div>
 
@@ -36,37 +201,19 @@
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Your cart</span>
-                <span class="badge badge-secondary badge-pill">3</span>
+                <span class="badge badge-secondary badge-pill">1</span>
             </h4>
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">Product name</h6>
-                        <small class="text-muted">Brief description</small>
+                        <h6 class="my-0">Wp-Autoindex Plugin</h6>
+                        <small class="text-muted">Make your wordpress more intelligent with Autofast Indexing Plugin</small>
                     </div>
                     <span class="text-muted">$12</span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between bg-light">
-                    <div class="text-success">
-                        <h6 class="my-0">Promo code</h6>
-                        <small>EXAMPLECODE</small>
-                    </div>
-                    <span class="text-success">-$5</span>
-                </li>
+
+
+
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (USD)</span>
                     <strong>$20</strong>
@@ -226,6 +373,8 @@
                     </div>
                 </div>
                 <hr class="mb-4">
+
+
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
             </form>
         </div>
@@ -240,5 +389,22 @@
         </ul>
     </footer>
 </div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="enroll/js/jquery.min.js"></script>
+<script src="enroll/js/bootstrap.bundle.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="enroll/js/jquery.easing.min.js"></script>
+<!-- Scrolling Nav JavaScript -->
+<script src="enroll/js/scrolling-nav.js"></script>
+<!-- Particles JavaScript -->
+<!-- Owl Carousel javascript -->
+<script src="enroll/js/owl.carousel.js"></script>
+<!-- WOW JavaScript -->
+<script src="enroll/js/wow.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="enroll/js/custom.js"></script>
+<!-- Facebook Pixel Code -->
+
 </body>
 </html>
