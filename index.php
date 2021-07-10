@@ -20,35 +20,8 @@
     <link href="enroll/css/osahan.css" rel="stylesheet">
     <!-- Facebook Pixel Code -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AbFiu-cDLQv1gGZIv_HBJVGbd_w3AB-s3uCSgYtv5ITkydjuUNkCUeP-NNtkPvuQWELHZyiuP5qaGQFP"></script>
 
-    <script>
-        paypal.Buttons({
-            createOrder: function(data, actions) {
-                // This function sets up the details of the transaction, including the amount and line item details.
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '6.00'
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                // This function captures the funds from the transaction.
-                return actions.order.capture().then(function(details) {
-                    // This function shows a transaction success message to your buyer.
-                    console.log(details);
 
-                    $.post("paypalsave.php", {data: details}, function(result){
-
-                    });
-
-                    alert('Transaction completed by ' + details.payer.name.given_name+ ". Please, Check Your email for this plugin");
-                });
-            }
-        }).render('#paypal');
-    </script>
     <!-- End Facebook Pixel Code -->
 </head>
 <body id="page-top">
@@ -67,15 +40,15 @@
 
 
 
-                        <a href="https://rzp.io/l/HkF6raq" target="_blank">
-                            <button type="button" class="btn btn-light btn-lg">Get This Plugin <small>version 1</small></button>
+                        <a href="payment.php" target="_blank">
+                            <button type="button" class="btn btn-light btn-lg"> License your Plugin </button>
                         </a><br/>
 
 
                     </div>
                     <br/>
                     <a href="#"  style="font-size:18px;">
-                        <button type="button" class="btn btn-light btn-lg">For Bloggers comming soon</button>
+                        <button type="button" class="btn btn-light btn-lg">Free Trial Version dowmnload</button>
                     </a>
                     <div style="padding:16.25% 0 0 0;position:relative;">
 
@@ -100,12 +73,10 @@
 <section class="features-mid-block pt-5">
 
     <center>
-        <a href="version1.html" target="_blank">
-            <button type="button" class="btn btn-light btn-lg">Version 1</button>
-        </a><br/>
+
 
         <hr/>
-        <a href="https://rzp.io/l/HkF6raq" target="_blank">
+        <a href="payment.php" target="_blank">
             <button type="button" class="btn btn-light btn-lg">Version 2</button>
         </a><br/>
 
@@ -252,8 +223,8 @@
                     <div class="col-md-10 mx-auto text-center">
                         <img width="100%" src="4.jpeg">
                         <p class="mt5">
-                            <a href="https://rzp.io/l/HkF6raq" target="_blank">
-                                <button type="button" class="btn btn-light btn-lg">ADD TO CART<small>version 1</small></button>
+                            <a href="payment.php" target="_blank">
+                                <button type="button" class="btn btn-light btn-lg">ADD TO CART</button>
                             </a>
                         </p>
                     </div>
@@ -372,8 +343,8 @@
         </div>
         <div class="text-center mt3">
             <p class="mb-0">
-                <a href="https://rzp.io/l/HkF6raq" target="_blank">
-                    <button href="#" type="button" class="btn btn-primary">ADD TO CART <small>version 1</small></button>
+                <a href="payment.php" target="_blank">
+                    <button href="#" type="button" class="btn btn-primary">ADD TO CART</button>
                 </a>
             </p>
         </div>

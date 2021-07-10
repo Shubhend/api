@@ -4,9 +4,14 @@
       private $connection;
       private static $_instance;
       private $dbhost = "localhost"; // Ip Address of database if external connection.
+
+
+
       private $dbuser = "tag31_mig"; // Username for DB
       private $dbpass = "tag31_cart_mig"; // Password for DB
       private $dbname = "api"; // DB Name
+
+
       /*
       Get an instance of the Database
       @return Instance
