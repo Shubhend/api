@@ -19,10 +19,12 @@ CREATE TABLE  `notice` ( `id` INT NOT NULL AUTO_INCREMENT ,  `info` VARCHAR(200)
 ALTER TABLE `license`  ADD `coupon` VARCHAR(200) NULL  AFTER `date`;
 
 
-ALTER TABLE `company` ADD `discount` INT NULL AFTER `valid`;
 
 
 CREATE TABLE  `company` ( `id` INT NOT NULL AUTO_INCREMENT ,  `coupon` VARCHAR(200) NOT NULL ,  `email` VARCHAR(200) NOT NULL ,  `date` VARCHAR(200) NOT NULL ,  `valid` VARCHAR(200) NOT NULL ,    PRIMARY KEY  (`id`)) ENGINE = InnoDB;
+
+
+ALTER TABLE `company` ADD `discount` INT NULL AFTER `valid`;
 
 ALTER TABLE `company`  ADD `count` VARCHAR(200) NULL  AFTER `email`;
 
