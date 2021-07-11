@@ -15,6 +15,19 @@ function validateuser($email,$site){
     $sqlivd="SELECT * FROM autoindex Where email='$email' ";
     $userid=$easydb->fetchrow($sqlivd,'id');
 
+    $block=$easydb->fetchrow($sqlivd,'block');
+
+
+    
+    if($block==1){
+
+        echo json_encode(['msg'=>"You are Blocked , Please Contact Us",'notification'=>'You Are Blocked , Please Contact Us']);
+        exit;
+
+
+    }
+
+
 
     $sqli="SELECT * FROM autoindexusers Where email='$userid' && site='$site'";
     $r=$easydb->checkduplicate($sqli);
