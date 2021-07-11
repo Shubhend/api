@@ -21,7 +21,14 @@ if(isset($_POST['type'])){
         $key=updatelicense($userid,$userdata);
 
         transactionstore($savedata,$userid,'paypal',$_POST['data']['id']);
-        sendmail($userdata['email'],$_POST['data']['id']);
+        sendmail($userdata['email'],$_POST['data']['id'],$key);
+
+
+        if($couponemail){
+
+            sendcompanyemail($couponemail,$_POST['data']['id'],$userdata['coupon'],'paypal');
+
+        }
 
         file_put_contents('transactions/'.$date.'-logs.log', json_encode($savedata) . "\n", FILE_APPEND);
 
@@ -41,8 +48,14 @@ if(isset($_POST['type'])){
         transactionstore($savedata,$userid,'razorpay',$_POST['data']['razorpay_payment_id']);
 
 
-        sendmail($userdata['email'],$_POST['data']['razorpay_payment_id']);
+        sendmail($userdata['email'],$_POST['data']['razorpay_payment_id'],$key);
 
+
+        if($couponemail){
+
+            sendcompanyemail($couponemail,$_POST['data']['razorpay_payment_id'],$userdata['coupon'],'razorpay');
+
+        }
 
         //   $savedata=['data'=>$_POST['data'],'userdata'=>unserialize($_POST['userdata'])];
         file_put_contents('transactions/'.$date.'-logs.log', json_encode($savedata) . "\n", FILE_APPEND);

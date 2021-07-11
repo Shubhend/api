@@ -1,23 +1,20 @@
 <?php
 
-
 include('classes/phpmailer/mail.php');
 
-function sendmail($email,$transactionid){
+function sendmail($email,$transactionid,$key){
 
 
 
 
-if(! $email==''){
-    //send email
+    if(! $email==''){
+        //send email
 
 
+        $to = $email;
+        $subject = "Wp-AutoFast Plugin";
 
-    $url='https://theonlinevoting.com';
-    $to = $email;
-    $subject = "Wp-AutoFast Plugin";
-
-    $body = "<h2>Hello, you’re awesome! welcome in journey of Fast Indexing Site Ranking  </h2> ".$transactionid."
+        $body = "<h2>Hello, you’re awesome! welcome in journey of Fast Indexing Site Ranking  </h2> 
 			<img src='https://www.pamelagrow.com/wp-content/uploads/2013/07/Welcome-300x199.jpg' style='width:100%;height:50%;'/>
 		<h3>
 		
@@ -25,11 +22,19 @@ if(! $email==''){
 		<br/>
 Thanks Aloooot.
 <br/>
+
+Your Transaction Id: ".$transactionid." <br/>
+
+Your Lisense Key: ".$key." <br/>
+
+Never, share you Lisense key.
+
+<br/>
 You are not alone, we are with you to help in ranking your site.
 Please Setup, this Plugin in your Wordpress, If you got any problem while setup, Feel free to contact us.
 <br/>
 Email:WOPENSYS@GMAIL.COM <br/>
-WhatsApp no. 9868969659  <br/>
+<a href='whatsapp://send?text=I have query about Wp-AutoIndex Plugin&phone=+919868969659'>Ping me on WhatsApp 9868969659</a>
 
 
 We made full setup video for you 
@@ -38,7 +43,7 @@ We made full setup video for you
 <br/>
 or 
 <br/>
-<a href='https://theonlinevoting.com/wpautoindex.php'> More Detail </a>
+<a href='http://firstpageranker.com/'> More Detail </a>
 <br/>
 Here is Your Plugin You Can Download It from this Link
 <br/>
@@ -46,31 +51,75 @@ Here is Your Plugin You Can Download It from this Link
 <a href='https://drive.google.com/file/d/1L02ORU-G-dl-sv4dzuIuRLB-MyZKF6fl/view?usp=sharing'>Download Premium Plugin</a>
 
 <br/>
-or
-<br/>
-	<a href='https://we.tl/t-r6c2spcSaw' >Download Server2</a>	
-		</h3>
-<br/>
+
 Regards,
 <br/>
-theonlinevoting.com<br/>
 
-			<p>Regards Site Admin</p>";
+
+			<p>Regards Wp-Autoindex plugin Admin</p>";
+
+        $mail = new Mail();
+        $mail->setFrom('noreply@firstpageranker.com','Wp-AutoFast Index Wordpress Premium Plugin');
+
+        $mail->addAddress($to);
+
+        $mail->subject($subject);
+        $mail->body($body);
+        $mail->send();
+
+
+
+    }
+
+
+}
+
+
+
+function sendcompanyemail($email,$transactionid,$coupon,$type){
+
+
+    $to = $email;
+    $subject = "Wp-AutoFast Plugin Coupon Transaction Information";
+
+    $body = "<h2>Hello, Wp-autoindex Team   </h2> 
+		
+		Congratulations, That Someone Have Bought  Premium Wordpress plugin from your Coupon Code.
+		<br/>
+Details Given Below.
+<br/>
+
+User Transaction Id: ".$transactionid." <br/>
+Coupon Used: ".$coupon." <br/>
+Payment Type: ".$type." <br/>
+
+
+<br/>
+You are not alone, Need any Help ??
+
+<br/>
+Email:WOPENSYS@GMAIL.COM <br/>
+<a href='whatsapp://send?text=I have query about Wp-AutoIndex Plugin&phone=+919868969659'> Ping me on WhatsApp 9868969659 </a>
+
+
+
+Regards,
+<br/>
+
+
+			<p>Regards Wp-Autoindex plugin Admin</p>";
 
     $mail = new Mail();
-    $mail->setFrom('noreply@theonlinevoting.com','Wp-AutoFast Index Wordpress Premium Plugin');
+    $mail->setFrom('noreply@firstpageranker.com','Congrats, Coupon Transaction Triggered for Wordpress Premium Plugin');
 
     $mail->addAddress($to);
 
     $mail->subject($subject);
     $mail->body($body);
-   var_dump( $mail->send());
-
-
-
-}
+    $mail->send();
 
 
 }
+
 
 ?>

@@ -261,7 +261,7 @@ if(isset($_POST['price'])){
                     "currency": "INR",
                     "name": "Wp-Autoindex wordpress Plugin",
                     "description": "Wp-autoindex Wordpress Plugin",
-                    "image": "https://example.com/your_logo",
+                    "image": "5.jpg",
                     "order_id": "<?php echo $razorpayOrderId; ?>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                     "handler": function (response) {
 

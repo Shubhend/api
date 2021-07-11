@@ -106,6 +106,9 @@ function updatesite($url,$userid,$status,$code,$type){
     $r=$easydb->checkduplicate($sqli);
     if($r>0) {
 
+        $sqline="UPDATE  requesturl   SET  status='$status',code='$code' WHERE  url='$url' and  type='$type'  ";
+        $easydb->insert($sqline);
+
 
 
     }
