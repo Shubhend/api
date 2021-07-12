@@ -61,10 +61,7 @@
         <img class="svg" src="enroll/images/bg.svg" alt="" />
     </div>
 </header>
-<center>
-    <small>Version 1</small>
-    <div id="paypal" ></div>
-</center>
+
 
 
 <div class="black-bg text-center">
@@ -192,7 +189,7 @@
                         <iframe src="https://www.youtube.com/embed/OPrYhDM74LA?autoplay=0&amp;controls=1&amp;rel=0&amp;autohide=1&amp;nologo=1&amp;showinfo=0&amp;" width="100%" height="380"></iframe>
                     </div>
                     <p class="mt5">
-                        <a href="https://theonlinevoting.com/wpautoindex.php" target="_blank">
+                        <a href="wpautoindex.php" target="_blank">
                             <button type="button" class="btn btn-light btn-lg">More Details>></button>
                         </a>
                     </p>
@@ -208,7 +205,7 @@
 
 
 <div class="black-bg text-center">
-    <h1 class="text-white">Therefore, We are Sharing one of the best and most important Plugin to enable you to Automate Your Indexing In GOOGLE and Bing in Very High speed.</h1>
+    <h1 class="text-white">Therefore, We are Sharing one of the best and most important Plugin to Automate Your Indexing In GOOGLE and Bing in Very High speed.</h1>
 </div>
 <section class="bg-primary" id="download-app">
     <div class="container">
@@ -236,7 +233,7 @@
 
 
 <div class="black-bg text-center">
-    <h1 class="text-white">Unable to setup: 7 Days No Questions Asked<br>Money Back Guarantee</h1>
+    <h1 class="text-white">Unable to setup: 50 Free website <br>Requests</h1>
 </div>
 <section class="bg-primary" id="pricing">
     <div class="container">
@@ -281,7 +278,7 @@
                             </div>
                             <div id="collapse1" class="panel-collapse collapse in">
                                 <div class="panel-body">Just click on the "ADD TO CART" button, complete your payment and you are good to go.
-                                    You will receive the Plugin details on your registered email id. You get a lifetime access or Only one-time Investment Plugin with our full setup support.
+                                    You will receive the Plugin details on your registered email id. You get a one year access  with our full setup support.
                                 </div>
                             </div>
                         </div>
@@ -331,7 +328,7 @@
                                 </div>
                             </div>
                             <div id="collapse7" class="panel-collapse collapse">
-                                <div class="panel-body">No. The only one time amount that you need to pay for this plugin for a lifetime.
+                                <div class="panel-body">No. The only one time amount that you need to pay for this plugin for a one year.
                                 </div>
                             </div>
                         </div>

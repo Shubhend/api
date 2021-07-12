@@ -246,9 +246,11 @@ if(isset($_POST['price'])){
 
                         $.post("transaction.php", {data: details,type: 'paypal',userdata: '<?php echo $userdata; ?>' }, function (result) {
 
+                            alert(" Transaction Complete, Please Check Your Email");
+
                         });
 
-                        alert('Transaction completed by ' + details.payer.name.given_name + ". Please, Check Your email for this plugin");
+                     //   alert('Transaction completed by ' + details.payer.name.given_name + ". Please, Check Your email for this plugin");
                     });
                 }
             }).render('#paypal');
@@ -267,10 +269,12 @@ if(isset($_POST['price'])){
 
                         $.post("transaction.php", {data: response,type: 'razorpay',userdata: '<?php echo $userdata; ?>'}, function (result) {
 
+                            alert(" Transaction Complete, Please Check Your Email");
+
                         });
 
 
-                        console.log(response);
+                       // console.log(response);
 
                     },
                     "prefill": {
