@@ -71,14 +71,16 @@ $userdata=serialize($_POST);
     <link href="enroll/css/osahan.css" rel="stylesheet">
     <!-- Facebook Pixel Code -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--
+
       <script src="https://www.paypal.com/sdk/js?client-id=AbFiu-cDLQv1gGZIv_HBJVGbd_w3AB-s3uCSgYtv5ITkydjuUNkCUeP-NNtkPvuQWELHZyiuP5qaGQFP"></script>
 
-    -->
+
+
+  <!-- AUQChkSohw2GHSv3bdwypdjO684BnA1YYvnKsGFAgJhQZ0h8Et9AQa01xNSibmGWnMkAP4rGjGzRwN5q
 
     <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
 
-
+-->
 
 </head>
 
@@ -308,11 +310,10 @@ if(isset($_POST['price'])){
     </div>
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2019 Company Name</p>
+        <p class="mb-1">&copy; 2012-2021 Wp-Autofast Indexing</p>
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
+            <li class="list-inline-item"><a href="index.php">Home</a></li>
+          
         </ul>
     </footer>
 </div>

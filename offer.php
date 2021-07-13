@@ -2,8 +2,9 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - ThreeJS</title>
+    <title>Wp-Autoindex Offer</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Bootstrap core CSS -->
     <link href="enroll/css/bootstrap.min.css" rel="stylesheet">
@@ -242,8 +243,10 @@ if(isset($_POST['name'])){
         
     );
     fputcsv($file_open, $form_data);
-    
-    
+
+    offermail($_POST['email'],'HURRY50',$_POST['name']);
+
+    echo "<script>alert('Coupon Code has been sent in you email, Please check ');document.location='index.php'</script>";
 
 }
 
@@ -263,7 +266,7 @@ if(isset($_POST['name'])){
     <div class="gated-hero__item gated-hero__gate hero-gate js-gate">
         <div class="hero-gate__aligner">
             <h1 class="hero-gate__title">
-                Get the Growth handbook now!
+                Get An Intelligent Recommendation 50% offer in WP-Autoindex Premium Plugin
             </h1>
             <form action="" method="post">
                 <div class="hero-gate__form">
@@ -272,7 +275,7 @@ if(isset($_POST['name'])){
                     <input type="text" name="contact" placeholder="Contact (Optional)">
                 </div>
                 <button class="js-submit button" type="submit">
-                    Read now
+                   Get Coupon Code
                 </button>
 
             </form>
@@ -282,27 +285,7 @@ if(isset($_POST['name'])){
 
 </header>
 <section class="l-page-wrap l-page-wrap--narrow gated-content gated-content--is-locked js-gated-content" aria-hidden>
-    <h2>Introduction</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a placerat ante. Fusce eu dui hendrerit, consectetur nisi eu, fringilla dui. Nam placerat magna nulla, non mollis magna vestibulum non. Morbi et fermentum sapien. Vestibulum feugiat lorem pretium, auctor sapien porta, fringilla augue. Donec consectetur rutrum libero eu pretium. Nulla ipsum neque, pellentesque eget faucibus quis, imperdiet a elit. Nullam in feugiat nisl, sed viverra dolor. Aliquam elit erat, ultricies in turpis condimentum, egestas porta ante. Cras laoreet ipsum id sem finibus, vitae bibendum tellus molestie. Curabitur ullamcorper, libero in convallis hendrerit, nibh magna dictum tortor, id ornare ipsum risus eu magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus quis sapien sed ligula malesuada iaculis.
-    </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a placerat ante. Fusce eu dui hendrerit, consectetur nisi eu, fringilla dui. Nam placerat magna nulla, non mollis magna vestibulum non. Morbi et fermentum sapien. Vestibulum feugiat lorem pretium, auctor sapien porta, fringilla augue. Donec consectetur rutrum libero eu pretium. Nulla ipsum neque, pellentesque eget faucibus quis, imperdiet a elit. Nullam in feugiat nisl, sed viverra dolor. Aliquam elit erat, ultricies in turpis condimentum, egestas porta ante. Cras laoreet ipsum id sem finibus, vitae bibendum tellus molestie. Curabitur ullamcorper, libero in convallis hendrerit, nibh magna dictum tortor, id ornare ipsum risus eu magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus quis sapien sed ligula malesuada iaculis.
-    </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a placerat ante. Fusce eu dui hendrerit, consectetur nisi eu, fringilla dui. Nam placerat magna nulla, non mollis magna vestibulum non. Morbi et fermentum sapien. Vestibulum feugiat lorem pretium, auctor sapien porta, fringilla augue. Donec consectetur rutrum libero eu pretium. Nulla ipsum neque, pellentesque eget faucibus quis, imperdiet a elit. Nullam in feugiat nisl, sed viverra dolor. Aliquam elit erat, ultricies in turpis condimentum, egestas porta ante. Cras laoreet ipsum id sem finibus, vitae bibendum tellus molestie. Curabitur ullamcorper, libero in convallis hendrerit, nibh magna dictum tortor, id ornare ipsum risus eu magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus quis sapien sed ligula malesuada iaculis.
-    </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a placerat ante. Fusce eu dui hendrerit, consectetur nisi eu, fringilla dui. Nam placerat magna nulla, non mollis magna vestibulum non. Morbi et fermentum sapien. Vestibulum feugiat lorem pretium, auctor sapien porta, fringilla augue. Donec consectetur rutrum libero eu pretium. Nulla ipsum neque, pellentesque eget faucibus quis, imperdiet a elit. Nullam in feugiat nisl, sed viverra dolor. Aliquam elit erat, ultricies in turpis condimentum, egestas porta ante. Cras laoreet ipsum id sem finibus, vitae bibendum tellus molestie. Curabitur ullamcorper, libero in convallis hendrerit, nibh magna dictum tortor, id ornare ipsum risus eu magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus quis sapien sed ligula malesuada iaculis.
-    </p>
-    <h2>
-        Some other section
-    </h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a placerat ante. Fusce eu dui hendrerit, consectetur nisi eu, fringilla dui. Nam placerat magna nulla, non mollis magna vestibulum non. Morbi et fermentum sapien. Vestibulum feugiat lorem pretium, auctor sapien porta, fringilla augue. Donec consectetur rutrum libero eu pretium. Nulla ipsum neque, pellentesque eget faucibus quis, imperdiet a elit. Nullam in feugiat nisl, sed viverra dolor. Aliquam elit erat, ultricies in turpis condimentum, egestas porta ante. Cras laoreet ipsum id sem finibus, vitae bibendum tellus molestie. Curabitur ullamcorper, libero in convallis hendrerit, nibh magna dictum tortor, id ornare ipsum risus eu magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus quis sapien sed ligula malesuada iaculis.
-    </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a placerat ante. Fusce eu dui hendrerit, consectetur nisi eu, fringilla dui. Nam placerat magna nulla, non mollis magna vestibulum non. Morbi et fermentum sapien. Vestibulum feugiat lorem pretium, auctor sapien porta, fringilla augue. Donec consectetur rutrum libero eu pretium. Nulla ipsum neque, pellentesque eget faucibus quis, imperdiet a elit. Nullam in feugiat nisl, sed viverra dolor. Aliquam elit erat, ultricies in turpis condimentum, egestas porta ante. Cras laoreet ipsum id sem finibus, vitae bibendum tellus molestie. Curabitur ullamcorper, libero in convallis hendrerit, nibh magna dictum tortor, id ornare ipsum risus eu magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus quis sapien sed ligula malesuada iaculis.
-    </p>
-    <h3>Some sub section</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a placerat ante. Fusce eu dui hendrerit, consectetur nisi eu, fringilla dui. Nam placerat magna nulla, non mollis magna vestibulum non. Morbi et fermentum sapien. Vestibulum feugiat lorem pretium, auctor sapien porta, fringilla augue. Donec consectetur rutrum libero eu pretium. Nulla ipsum neque, pellentesque eget faucibus quis, imperdiet a elit. Nullam in feugiat nisl, sed viverra dolor. Aliquam elit erat, ultricies in turpis condimentum, egestas porta ante. Cras laoreet ipsum id sem finibus, vitae bibendum tellus molestie. Curabitur ullamcorper, libero in convallis hendrerit, nibh magna dictum tortor, id ornare ipsum risus eu magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus quis sapien sed ligula malesuada iaculis.
-    </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a placerat ante. Fusce eu dui hendrerit, consectetur nisi eu, fringilla dui. Nam placerat magna nulla, non mollis magna vestibulum non. Morbi et fermentum sapien. Vestibulum feugiat lorem pretium, auctor sapien porta, fringilla augue. Donec consectetur rutrum libero eu pretium. Nulla ipsum neque, pellentesque eget faucibus quis, imperdiet a elit. Nullam in feugiat nisl, sed viverra dolor. Aliquam elit erat, ultricies in turpis condimentum, egestas porta ante. Cras laoreet ipsum id sem finibus, vitae bibendum tellus molestie. Curabitur ullamcorper, libero in convallis hendrerit, nibh magna dictum tortor, id ornare ipsum risus eu magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus quis sapien sed ligula malesuada iaculis.
-    </p>
+  
 </section>
 </div>
 

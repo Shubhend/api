@@ -47,8 +47,8 @@
 
                     </div>
                     <br/>
-                    <a href="#"  style="font-size:18px;">
-                        <button type="button" class="btn btn-light btn-lg">Free Trial Version dowmnload</button>
+                    <a href="versions/wp-autoindex_2.2.zip"  style="font-size:18px;">
+                        <button type="button" class="btn btn-light btn-lg">Free Trial Version download</button>
                     </a>
                     <div style="padding:16.25% 0 0 0;position:relative;">
 
@@ -352,7 +352,7 @@
                 <h5 style="font-size: 20px">Click the "ADD TO CART" button above now and I look forward to hearing about the incredible results you're going to experience.</h5><br>
                 <h5 style="font-size: 20px">Sincerely</h5>
                 <h5 style="font-size: 20px">Shubhendu Kumar</h5><br>
-
+   Have query?? : wopensys@gmail.com
             </div>
         </div>
     </div>

@@ -43,12 +43,14 @@ We made full setup video for you
 <br/>
 or 
 <br/>
-<a href='http://firstpageranker.com/'> More Detail </a>
+<a href='https://firstpageranker.com/'> More Detail </a>
 <br/>
 Here is Your Plugin You Can Download It from this Link
 <br/>
 
-<a href='https://drive.google.com/file/d/1L02ORU-G-dl-sv4dzuIuRLB-MyZKF6fl/view?usp=sharing'>Download Premium Plugin</a>
+<a href='https://firstpageranker.com/versions/wp-autoindex_2.2.zip'>Download Premium Plugin</a>
+<br/>
+http://firstpageranker.com/versions/wp-autoindex_2.2.zip
 
 <br/>
 
@@ -117,6 +119,60 @@ Regards,
     $mail->subject($subject);
     $mail->body($body);
     $mail->send();
+
+
+}
+
+
+function offermail($email,$coupon,$name){
+
+    $to = $email;
+    $subject = "Wp-AutoFast Plugin Coupon ";
+
+    $body = "<h2>Hello, ".$name."  </h2> 
+		<img src='https://www.pamelagrow.com/wp-content/uploads/2013/07/Welcome-300x199.jpg' style='width:100%;height:50%;'/>
+		<br/>
+		Congratulations, You Have got wp-Autoindex Plugin  Coupon Code.
+		<br/>
+Details Given Below.
+<br/>
+
+Coupon Code: ".$coupon." <br/>
+
+You can use this coupon to get maximum discount in Wp-Autoindex plugin. Up to 50%. Hurry Offer valid only for 3 days.
+
+</br>
+
+
+Click here <a href='https://firstpageranker.com/payment.php'>Click Here</a>
+<br/>
+https://firstpageranker.com/payment.php
+
+
+<br/>
+You are not alone, Need any Help ??
+
+<br/>
+Email:WOPENSYS@GMAIL.COM <br/>
+<a href='whatsapp://send?text=I have query about Wp-AutoIndex Plugin&phone=+919868969659'> Ping me on WhatsApp 9868969659 </a>
+
+
+
+Regards,
+<br/>
+
+
+			<p>Regards Wp-Autoindex plugin Admin</p>";
+
+    $mail = new Mail();
+    $mail->setFrom('noreply@firstpageranker.com','Congrats, You Got Wordpress Auto-index Plugin Coupon ');
+
+    $mail->addAddress($to);
+
+    $mail->subject($subject);
+    $mail->body($body);
+    $mail->send();
+
 
 
 }
