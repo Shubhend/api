@@ -352,12 +352,31 @@
                 <h5 style="font-size: 20px">Click the "ADD TO CART" button above now and I look forward to hearing about the incredible results you're going to experience.</h5><br>
                 <h5 style="font-size: 20px">Sincerely</h5>
                 <h5 style="font-size: 20px">Shubhendu Kumar</h5><br>
-   Have query?? : wopensys@gmail.com
+                  Have query?? : wopensys@gmail.com
             </div>
         </div>
     </div>
     <!-- conatainer-end -->
 </section>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2012-2021 Wp-Autofast Indexing</p>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="index.php">Home</a></li>
+        <li class="list-inline-item"><a href="privacy.php">Privacy Policy</a></li>
+        <li class="list-inline-item"><a href="privacy.php">Terms and Service</a></li>
+        <li class="list-inline-item"><a href="privacy.php">Cookies Policy</a></li>
+        <li class="list-inline-item"><a href="privacy.php">Refund Policy</a></li>
+
+    </ul>
+    <p class="mb-1"><b> Contact Us :</b></p>
+    <p>Mail: wopensys@gmail.com</p>
+    <p>Phone No. 9868969659 </p>
+    <p>Address : Dwarka , Delhi India</p>
+
+
+</footer>
+
 <script>
     var myIndex = 0;
     carousel();
