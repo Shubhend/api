@@ -115,7 +115,7 @@ function updaterequestcount($userid){
 function updatesite($url,$userid,$status,$code,$type){
     $easydb = new easyfeature();
     $date=date("Y-m-d h:i:sa");
-    $sqli="SELECT * FROM requesturl Where url='$url' and  type='$type' ";
+    $sqli="SELECT * FROM requesturl Where url='$url' and  type='$type' and user='$userid' ";
     $r=$easydb->checkduplicate($sqli);
     if($r>0) {
 
@@ -132,9 +132,11 @@ function updatesite($url,$userid,$status,$code,$type){
 
     }
 
+
     if (!file_exists('requestlogs/'.$userid)) {
         mkdir('requestlogs/'.$userid, 0777, true);
     }
+
 
 
     $data=[];
