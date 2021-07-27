@@ -48,9 +48,14 @@ or
 Here is Your Plugin You Can Download It from this Link
 <br/>
 
-<a href='https://firstpageranker.com/versions/wp-autoindex_2.2.zip'>Download Premium Plugin</a>
+<a href='https://wordpress.org/plugins/autofastindex/'>Download Premium Plugin</a>
 <br/>
-http://firstpageranker.com/versions/wp-autoindex_2.2.zip
+https://wordpress.org/plugins/autofastindex/
+
+<br>
+
+or Search autofastindex  in plugin.
+<img src='https://ps.w.org/autofastindex/assets/screenshot-1.png?rev=2572279' style='width:100%;height:50%;'/>
 
 <br/>
 
@@ -150,6 +155,9 @@ https://firstpageranker.com/payment.php
 
 
 <br/>
+<img src='https://ps.w.org/autofastindex/assets/screenshot-1.png?rev=2572279' style='width:100%;height:50%;'/>
+
+
 You are not alone, Need any Help ??
 
 <br/>

@@ -97,7 +97,10 @@ $userdata=serialize($_POST);
     <div class="py-5 text-center">
 
         <h2>Wp Autoindex License Upgrade  </h2>
-        <p class="lead"> Make you wordpress more Intelligent with wp-Autoindex Plugin</p>
+        <p class="lead"> Make you wordpress more Intelligent with wp-Autoindex Plugin  </p>
+        <a href="https://wordpress.org/plugins/autofastindex/" target="_blank" style="font-size:18px;">
+            <button type="button" class="btn btn-light btn-lg">Try Plugin ??</button>
+        </a>
     </div>
 
     <div class="row">

@@ -97,13 +97,15 @@ or
 Here is Your Plugin You Can Download It from this Link
 <br/>
 
-<a href='https://drive.google.com/file/d/1L02ORU-G-dl-sv4dzuIuRLB-MyZKF6fl/view?usp=sharing'>Download Premium Plugin</a>
+<a href='https://wordpress.org/plugins/autofastindex/'>Download Premium Plugin</a>
 
 <br/>
 or
 <br/>
-	<a href='https://we.tl/t-r6c2spcSaw' >Download Server2</a>	
+	<a href='https://wordpress.org/plugins/autofastindex/' >Download Server2</a>	
 		</h3>
+		
+		<img src='https://ps.w.org/autofastindex/assets/screenshot-1.png?rev=2572279' style='width:100%;height:50%;'/>
 <br/>
 Regards,
 <br/>

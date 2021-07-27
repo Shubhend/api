@@ -111,6 +111,17 @@ h1 span {
  <iframe src="https://www.youtube.com/embed/OPrYhDM74LA?autoplay=0&amp;controls=1&amp;rel=0&amp;autohide=1&amp;nologo=1&amp;showinfo=0&amp;" width="100%" height="380"></iframe>
 
 
+             <p class="control-label col-sm-12" for="pwd"> Need Help to setup? Generate Google Json File </p>
+
+             <iframe width="560" height="315" src="https://www.youtube.com/embed/mB1q5tjs22I" title="YouTube video player" frameborder="0" width="100%" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+             <p class="control-label col-sm-12" for="pwd"> Generate Bing Api</p>
+
+             <iframe width="560" height="315" src="https://www.youtube.com/embed/J30T9M1uKss" title="YouTube video player" frameborder="0" width="100%" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+
 
 <p>The world No.1 WordPress tool to rank Higher and Faster than your competitor.</p>
 <p>This Plugin will make your Indexing process automatically and fast.</p>

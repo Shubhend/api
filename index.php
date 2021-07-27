@@ -41,14 +41,14 @@
 
 
                         <a href="payment.php" target="_blank">
-                            <button type="button" class="btn btn-light btn-lg"> License your Plugin </button>
+                            <button type="button" class="btn btn-light btn-lg"> License Update </button>
                         </a><br/>
 
 
                     </div>
                     <br/>
-                    <a href="versions/wp-autoindex_2.2.zip"  style="font-size:18px;">
-                        <button type="button" class="btn btn-light btn-lg">Free Trial Version download</button>
+                    <a href="https://wordpress.org/plugins/autofastindex/"  style="font-size:18px;">
+                        <button type="button" class="btn btn-light btn-lg">Free download</button>
                     </a>
                     <div style="padding:16.25% 0 0 0;position:relative;">
 
@@ -372,7 +372,6 @@
     <p class="mb-1"><b> Contact Us :</b></p>
     <p>Mail: wopensys@gmail.com</p>
     <p>Phone No. 9868969659 </p>
-    <p>Address : Dwarka , Delhi India</p>
 
 
 </footer>
