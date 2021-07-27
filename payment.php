@@ -21,14 +21,14 @@ $api =new Razorpay\Api\Api($key,'BbYaWYyGPc33YElRa2rpoify');
 if(isset($_POST['price'])){
 
 
-$price=$_POST['price'];
-$name=$_POST['fullname'];
-$site=$_POST['site'];
-$email=$_POST['email'];
-$contact=$_POST['contact'];
-$dollerprice=$_POST['dollorprice'];
+    $price=$_POST['price'];
+    $name=$_POST['fullname'];
+    $site=$_POST['site'];
+    $email=$_POST['email'];
+    $contact=$_POST['contact'];
+    $dollerprice=$_POST['dollorprice'];
 
-$userdata=serialize($_POST);
+    $userdata=serialize($_POST);
 
     $orderData = [
         'amount'          => $price * 100, // 2000 rupees in paise
@@ -72,15 +72,15 @@ $userdata=serialize($_POST);
     <!-- Facebook Pixel Code -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-      <script src="https://www.paypal.com/sdk/js?client-id=AbFiu-cDLQv1gGZIv_HBJVGbd_w3AB-s3uCSgYtv5ITkydjuUNkCUeP-NNtkPvuQWELHZyiuP5qaGQFP"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AbFiu-cDLQv1gGZIv_HBJVGbd_w3AB-s3uCSgYtv5ITkydjuUNkCUeP-NNtkPvuQWELHZyiuP5qaGQFP"></script>
 
 
 
-  <!-- AUQChkSohw2GHSv3bdwypdjO684BnA1YYvnKsGFAgJhQZ0h8Et9AQa01xNSibmGWnMkAP4rGjGzRwN5q
+    <!-- AUQChkSohw2GHSv3bdwypdjO684BnA1YYvnKsGFAgJhQZ0h8Et9AQa01xNSibmGWnMkAP4rGjGzRwN5q
 
-    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+      <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
 
--->
+  -->
 
 </head>
 
@@ -115,7 +115,7 @@ $userdata=serialize($_POST);
                         <h6 class="my-0">Wp-Autoindex Plugin</h6>
                         <small class="text-muted">Make your wordpress more intelligent with Autofast Indexing Plugin</small>
                     </div>
-                    <span class="text-muted" id="rsprice">Rs<?php echo $price; ?></span>
+                    <span class="text-muted" id="rsprice">  <del>Rs 500</del>  Rs<?php echo $price; ?></span>
                 </li>
 
 
@@ -127,12 +127,12 @@ $userdata=serialize($_POST);
             </ul>
 
 
-                <div class="input-group" id="promo">
-                    <input type="text" id="couponvalue" class="form-control" placeholder="Promo code">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary" id="coupon">Redeem</button>
-                    </div>
+            <div class="input-group" id="promo">
+                <input type="text" id="couponvalue" class="form-control" placeholder="Promo code">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary" id="coupon">Redeem</button>
                 </div>
+            </div>
 
         </div>
 
@@ -164,7 +164,7 @@ $userdata=serialize($_POST);
                     <label for="address">Full website (Same as wp-Autoindex plugin settings)</label>
                     <input type="text" class="form-control" name="site" placeholder="https://example.com" required>
                     <div class="invalid-feedback">
-Valid Site url Required
+                        Valid Site url Required
                     </div>
                 </div>
 
@@ -183,7 +183,7 @@ Valid Site url Required
 
 
 
-                      <input type="hidden" name="price" id="mainprice" value="<?php echo $price; ?>">
+                <input type="hidden" name="price" id="mainprice" value="<?php echo $price; ?>">
 
                 <input type="hidden" name="dollorprice" id="maindprice" value="<?php echo $dollerprice; ?>">
 
@@ -191,124 +191,124 @@ Valid Site url Required
 
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
 
-               </form>
+            </form>
 
 
-<?php
-if(isset($_POST['price'])){
+            <?php
+            if(isset($_POST['price'])){
 
-?>
+                ?>
 
-        <style>
-            #form{
-                display:none;
-            }
-            #promo{
-                display:none;
-            }
-        </style>
-    <h3 class="mb-3">Payment Option</h3>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-
-                <h4 class="mb-3">$ <?PHP echo $dollerprice; ?></h4>
-
-                <div id="paypal" ></div>
-            </div>
-            <hr/>
-            <div class="col-sm">
-
-                <h4 class="mb-3">Rs <?PHP echo $price; ?></h4>
-                <button class="btn btn-primary btn-sm" id="rzp-button1" onclick="raz()">Other methods</button>
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-
-    <script>
-
-            paypal.Buttons({
-                createOrder: function (data, actions) {
-                    // This function sets up the details of the transaction, including the amount and line item details.
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: {
-                                value: '<?php echo $dollerprice; ?>'
-                            }
-                        }]
-                    });
-                },
-                onApprove: function (data, actions) {
-                    // This function captures the funds from the transaction.
-                    return actions.order.capture().then(function (details) {
-                        // This function shows a transaction success message to your buyer.
-                        console.log(details);
-
-                        $.post("transaction.php", {data: details,type: 'paypal',userdata: '<?php echo $userdata; ?>' }, function (result) {
-
-                            alert(" Transaction Complete, Please Check Your Email");
-
-                        });
-
-                     //   alert('Transaction completed by ' + details.payer.name.given_name + ". Please, Check Your email for this plugin");
-                    });
-                }
-            }).render('#paypal');
-
-            function raz() {
-
-                var options = {
-                    "key": "<?php echo $key; ?>", // Enter the Key ID generated from the Dashboard
-                    "amount": "<?php echo $price; ?>", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-                    "currency": "INR",
-                    "name": "Wp-Autoindex wordpress Plugin",
-                    "description": "Wp-autoindex Wordpress Plugin",
-                    "image": "5.jpg",
-                    "order_id": "<?php echo $razorpayOrderId; ?>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-                    "handler": function (response) {
-
-                        $.post("transaction.php", {data: response,type: 'razorpay',userdata: '<?php echo $userdata; ?>'}, function (result) {
-
-                            alert(" Transaction Complete, Please Check Your Email");
-
-                        });
-
-
-                       // console.log(response);
-
-                    },
-                    "prefill": {
-                        "name": "<?php echo $name; ?>",
-                        "email": "<?php echo $email; ?>",
-                        "contact": "<?php echo $contact; ?>"
-                    },
-                    "notes": {
-                        "address": "Razorpay Corporate Office Wp-Autoindex Plugin"
-                    },
-                    "theme": {
-                        "color": "#3399cc"
+                <style>
+                    #form{
+                        display:none;
                     }
-                };
-                var rzp1 = new Razorpay(options);
-                rzp1.on('payment.failed', function (response) {
-                   alert("Try again");
-                });
+                    #promo{
+                        display:none;
+                    }
+                </style>
+                <h3 class="mb-3">Payment Option</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
 
-                    rzp1.open();
-                    e.preventDefault();
+                            <h4 class="mb-3">$ <?PHP echo $dollerprice; ?></h4>
 
-            }
+                            <div id="paypal" ></div>
+                        </div>
+                        <hr/>
+                        <div class="col-sm">
 
-    </script>
+                            <h4 class="mb-3">Rs <?PHP echo $price; ?></h4>
+                            <button class="btn btn-primary btn-sm" id="rzp-button1" onclick="raz()">Other methods</button>
+                        </div>
+
+                    </div>
+                </div>
 
 
 
-<?php } ?>
+
+
+                <script>
+
+                    paypal.Buttons({
+                        createOrder: function (data, actions) {
+                            // This function sets up the details of the transaction, including the amount and line item details.
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: {
+                                        value: '<?php echo $dollerprice; ?>'
+                                    }
+                                }]
+                            });
+                        },
+                        onApprove: function (data, actions) {
+                            // This function captures the funds from the transaction.
+                            return actions.order.capture().then(function (details) {
+                                // This function shows a transaction success message to your buyer.
+                                console.log(details);
+
+                                $.post("transaction.php", {data: details,type: 'paypal',userdata: '<?php echo $userdata; ?>' }, function (result) {
+
+                                    alert(" Transaction Complete, Please Check Your Email");
+
+                                });
+
+                                //   alert('Transaction completed by ' + details.payer.name.given_name + ". Please, Check Your email for this plugin");
+                            });
+                        }
+                    }).render('#paypal');
+
+                    function raz() {
+
+                        var options = {
+                            "key": "<?php echo $key; ?>", // Enter the Key ID generated from the Dashboard
+                            "amount": "<?php echo $price; ?>", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                            "currency": "INR",
+                            "name": "Wp-Autoindex wordpress Plugin",
+                            "description": "Wp-autoindex Wordpress Plugin",
+                            "image": "5.jpg",
+                            "order_id": "<?php echo $razorpayOrderId; ?>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                            "handler": function (response) {
+
+                                $.post("transaction.php", {data: response,type: 'razorpay',userdata: '<?php echo $userdata; ?>'}, function (result) {
+
+                                    alert(" Transaction Complete, Please Check Your Email");
+
+                                });
+
+
+                                // console.log(response);
+
+                            },
+                            "prefill": {
+                                "name": "<?php echo $name; ?>",
+                                "email": "<?php echo $email; ?>",
+                                "contact": "<?php echo $contact; ?>"
+                            },
+                            "notes": {
+                                "address": "Razorpay Corporate Office Wp-Autoindex Plugin"
+                            },
+                            "theme": {
+                                "color": "#3399cc"
+                            }
+                        };
+                        var rzp1 = new Razorpay(options);
+                        rzp1.on('payment.failed', function (response) {
+                            alert("Try again");
+                        });
+
+                        rzp1.open();
+                        e.preventDefault();
+
+                    }
+
+                </script>
+
+
+
+            <?php } ?>
         </div>
     </div>
 
@@ -316,7 +316,7 @@ if(isset($_POST['price'])){
         <p class="mb-1">&copy; 2012-2021 Wp-Autofast Indexing</p>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="index.php">Home</a></li>
-          
+
         </ul>
     </footer>
 </div>
@@ -334,11 +334,11 @@ if(isset($_POST['price'])){
                 console.log(data);
 
                 if(data.err==0){
-  $("#rsprice").html('Rs'+data.price);
+                    $("#rsprice").html('Rs'+data.price);
                     $("#combprice").html('$'+data.dollorprice+', Rs'+data.price);
-$("#mainprice").val(data.price);
+                    $("#mainprice").val(data.price);
                     $("#maindprice").val(data.dollorprice);
-$("#couponcode").val( $("#couponvalue").val());
+                    $("#couponcode").val( $("#couponvalue").val());
 
                 }else{
 
