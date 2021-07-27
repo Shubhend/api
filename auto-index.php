@@ -72,12 +72,18 @@ if(isset($_POST['add'])){
         fwrite($fp, json_encode($e->getMessage()));
         fclose($fp);
 
+        $send['er']=1;
+        $send['msg']='Try Again';
 
-
+        echo json_encode($send);
         exit;
     }
+
+
+    $send['er']=0;
+    $send['msg']='Data Updated';
    
-    echo json_encode("done");
+    echo json_encode($send);
     exit;
    
     
