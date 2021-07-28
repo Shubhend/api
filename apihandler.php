@@ -2,9 +2,9 @@
 include('config.php');
 
 
-$bingurl='http://firstpageranker.com/bing.php';
+$bingurl='https://firstpageranker.com/bing.php';
 
-$googleurl='http://firstpageranker.com/google.php';
+$googleurl='https://firstpageranker.com/google.php';
 
 function validateuser($email,$site){
 
